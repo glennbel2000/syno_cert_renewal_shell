@@ -22,32 +22,46 @@ cert_id_default_file="./cert_id_default"
 **/volume1/homes/certd**是certd的home目录。
 
 #### 上传证书到cert_source_path
-- 上传fullchain.pem到```/volume1/homes/certd/_a_com/```下
-- 上传privkey.pem到```/volume1/homes/certd/_a_com/```下
+- 上传```fullchain.pem```到```/volume1/homes/certd/_a_com/```下
+- 上传```privkey.pem```到```/volume1/homes/certd/_a_com/```下
 - 
 #### 添加任务计划
-1. 创建**用户定义的脚本**：任务计划->新增->计划的任务->用户定义的脚本;
-2. 设置**常规**：
-2.1 任务名称：英文/数字
-2.2 用户账户：**root**
+1.  创建**用户定义的脚本**：控制面板->任务计划->新增->计划的任务->用户定义的脚本;
+
+   ![image](./img/add_task.png)
+
+2.  设置**常规**：
+   2.1 任务名称：英文/数字
+   2.2 用户账户：**root**
+
+   <img src="./img/add_task_1.png" alt="image" style="zoom:50%;" />
+
 3. 设置**计划**：根据自己需要设置定期执行的时间；
-4. 设置**任务设置**：
-4.1 将**Syno_cert_renewal_base_local_dir.sh**修改好配置的参数后的代码复制进**用户命令**文本框内，保存；
+
+   <img src="./img/add_task_2.png" alt="image" style="zoom:50%;" />
+
+4.  设置**任务设置**：
+   将**Syno_cert_renewal_base_local_dir.sh**修改好配置的参数后的代码复制进**用户命令**文本框内，保存；
+
+   <img src="./img/add_task_3.png" alt="image" style="zoom:50%;" />
 
 #### 试运行及检查结果
-##### 试运行
-![image](https://github.com/glennbel2000/syno_cert_renewal_shell/assets/174859042/07116d83-67de-477c-b560-f58910efff50)
+##### 试运行任务计划
+![image](./img/try_run_script.png)
 
 ##### 检查运行结果
 - 查看日志：
-根据设置的**log_path**，查看日志内最后一行是否包含**Certificate [你的域名] renewal process done!**字样。
+根据设置的**log_path**，查看日志内最后一行是否包含**Certificate [hostname] renewal process done!**类似字样。
 
 - 群晖界面查看结果：
-任务计划->选择你创建的任务->操作->查看结果，如果显示如下状态则运行正常：
-![image](https://github.com/glennbel2000/syno_cert_renewal_shell/assets/174859042/5ec63cbf-7227-4caa-a5a7-201d1317e845)
+  任务计划->选择你创建的任务->操作->查看结果，如果显示如下状态则运行正常：
+
+  ![image](README.assets/check_shell_result_1-17202556769103.png)
+
+  ![image](./img/check_shell_result_2.png)
 
 ##### 查看证书生效情况
-![image](https://github.com/glennbel2000/syno_cert_renewal_shell/assets/174859042/dd986101-8643-4f7d-b5ef-508daf0ef8e8)
+![image](./img/cert_renewal_done_menu.png)
 
 
 #### 注意事项
