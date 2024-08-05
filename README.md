@@ -71,6 +71,7 @@ cert_id_default_file="./cert_id_default"
 ##### 查看证书生效情况
 ![image](./img/cert_renewal_done_menu.png)
 
+**首次需要在证书页面更改默认证书为脚本更新的证书，后续则不需要更改**
 
 #### 注意事项
 此脚本理论支持Syno 6.x和7.x，但仅在7.2使用过，其他的请自己尝试。
